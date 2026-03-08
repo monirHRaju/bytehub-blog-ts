@@ -1,5 +1,5 @@
-import React from 'react';
 import {blogs} from "@/lib/data"
+import Link from 'next/link';
 
 const BlogPage = () => {
     return (
@@ -8,7 +8,7 @@ const BlogPage = () => {
             {
                 blogs.map((blog) => (
                     <div key={blog.id}>
-                        <h2>{blog.title}</h2>
+                        <Link className="text-blue-500" href={`blog/${blog.slug}`}><h2>{blog.title}</h2></Link>
                         <p>{blog.author}</p>
                     </div>
                 ))
