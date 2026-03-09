@@ -8,7 +8,8 @@ export default function BlogCard({ blog }: Props) {
   return (
     <div>
       <h2>{blog.title}</h2>
-      <p>{blog.author}</p>
+      <p>{blog.content}</p>
+      <p>Author : {blog.author}</p>
     </div>
   )
 }
