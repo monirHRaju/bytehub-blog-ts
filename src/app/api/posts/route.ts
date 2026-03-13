@@ -1,24 +1,10 @@
-import prisma from "@/lib/prisma"
+import { connectDB } from "@/lib/mongodb"
+import Post from "@/models/Post"
 
 export async function GET() {
-  return Response.json({
-    message: "API working"
-  })
-}
-// export async function GET() {
-//   const posts = await prisma.post.findMany()
+  await connectDB()
 
-//   return Response.json(posts)
-// }
+  const posts = await Post.find()
 
-export async function POST() {
-  const post = await prisma.post.create({
-    data: {
-      title: "My First Blog",
-      slug: "my-first-blog",
-      content: "This is my first blog post"
-    }
-  })
-
-  return Response.json(post)
+  return Response.json(posts)
 }
